@@ -2,7 +2,9 @@ build:
 
 build_script:
   - mkdir build && cd build
-  - cmake -G"%TOOLCHAIN_VERSION%" ..
+  - if "%platform%"=="Win32" set CMAKE_GENERATOR="%TOOLCHAIN_VERSION%" ..
+  - if "%platform%"=="x64" set CMAKE_GENERATOR="%TOOLCHAIN_VERSION% Win64" ..
+  - cmake -G "%CMAKE_GENERATOR%" ..
   - cmake --build . --config release
 
 test_script:
