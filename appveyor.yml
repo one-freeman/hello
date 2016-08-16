@@ -13,3 +13,6 @@ environment:
     - TOOLCHAIN_VERSION: Visual Studio 14 2015 Win64
     - TOOLCHAIN_VERSION: Visual Studio 12 2013 Win64
     - TOOLCHAIN_VERSION: Visual Studio 11 2012 Win64
+    - TOOLCHAIN_VERSION: Visual Studio 14 2015 Win32
+    - TOOLCHAIN_VERSION: Visual Studio 12 2013 Win32
+    - TOOLCHAIN_VERSION: Visual Studio 11 2012 Win32
