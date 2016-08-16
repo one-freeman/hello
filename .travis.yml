@@ -1,3 +1,4 @@
+language: cpp
 sudo: required
 dist: trusty
 
@@ -15,8 +16,24 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
+            - g++-4.9
+      env: CXX=g++-4.9
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env: CXX=g++-5
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
             - g++-6
-      env: CC=gcc-6 CXX=g++-6
+      env: CXX=g++-6
     - os: linux
       addons:
         apt:
@@ -26,13 +43,10 @@ matrix:
           packages:
             - g++-6
             - clang-3.8
-      env: CC=clang-3.8 CXX=clang++-3.8
+      env: CXX=clang++-3.8
     - os: osx
       osx_image: xcode7.3
-      compiler: clang
     - os: osx
       osx_image: xcode6.4
-      compiler: clang
     - os: osx
       osx_image: beta-xcode6.1
-      compiler: clang
