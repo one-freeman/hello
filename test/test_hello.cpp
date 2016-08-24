@@ -1,19 +1,11 @@
 #include <sstream>
 #include <iostream>
-#include <cassert>
+#include <gtest/gtest.h>
 
 #include <hello.h>
 
-void test_hello() {
+TEST(hello, simple) {
     std::stringstream ss;
     hello(ss);
-    assert("Hello, world" == ss.str());
-}
-
-int main()
-{
-    std::cout << "test_hello...";
-    test_hello();
-    std::cout << "OK\n";
-    return 0;
+    ASSERT_STREQ("Hello, world", ss.str().c_str());
 }

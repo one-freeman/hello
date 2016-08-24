@@ -1,18 +1,22 @@
 build:
 
+install:
+  - set PATH=%PATH%;%PYTHON%/Scripts/
+  - pip.exe install conan # It install conan too
+  - conan install --build=missing
+
 build_script:
   - mkdir build && cd build
-  - if "%platform%"=="Win32" set CMAKE_GENERATOR="%TOOLCHAIN_VERSION%" ..
-  - if "%platform%"=="x64" set CMAKE_GENERATOR="%TOOLCHAIN_VERSION% Win64" ..
-  - cmake -G "%CMAKE_GENERATOR%" ..
+  - cmake -G "%TOOLCHAIN_VERSION%" ..
   - cmake --build . --config release
 
 test_script:
 - cmd: ctest -C release -VV
-platform:
-  - Win32
-  - x64
+
 environment:
+  PYTHON: "C:\\Python27"
+  PYTHON_VERSION: "2.7.8"
+  PYTHON_ARCH: "32"
   matrix:
     - TOOLCHAIN_VERSION: Visual Studio 14 2015
     - TOOLCHAIN_VERSION: Visual Studio 12 2013

@@ -1,6 +1,9 @@
 sudo: required
 dist: trusty
 
+install:
+  - conan install --build=missing
+
 script:
   - mkdir build && cd build
   - cmake ..
@@ -17,6 +20,8 @@ matrix:
           packages:
             - g++-4.9
       env: CXX=g++-4.9
+      before_install:
+        - sudo pip install conan
     - os: linux
       addons:
         apt:
@@ -25,6 +30,8 @@ matrix:
           packages:
             - g++-5
       env: CXX=g++-5
+      before_install:
+        - sudo pip install conan
     - os: linux
       addons:
         apt:
@@ -33,6 +40,8 @@ matrix:
           packages:
             - g++-6
       env: CXX=g++-6
+      before_install:
+        - sudo pip install conan
     - os: linux
       addons:
         apt:
@@ -45,7 +54,16 @@ matrix:
       env: CXX=clang++-3.8
     - os: osx
       osx_image: xcode7.3
+      before_install:
+        - brew update
+        - brew install conan
     - os: osx
       osx_image: xcode6.4
+      before_install:
+        - brew update
+        - brew install conan
     - os: osx
       osx_image: beta-xcode6.1
+      before_install:
+        - brew update
+        - brew install conan

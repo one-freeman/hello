@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(hello CXX)
 
+include(${CMAKE_SOURCE_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 set(${PROJECT_NAME}_SOURCES
     ${CMAKE_SOURCE_DIR}/src/hello.cpp
 )
@@ -17,6 +20,7 @@ add_executable(${PROJECT_NAME}
     ${${PROJECT_NAME}_SOURCES}
     ${${PROJECT_NAME}_HEADERS}
 )
+
 
 enable_testing()
 add_subdirectory(test)
