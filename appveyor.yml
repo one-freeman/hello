@@ -20,4 +20,4 @@ environment:
   matrix:
     - TOOLCHAIN_VERSION: 14
     - TOOLCHAIN_VERSION: 12
-    - TOOLCHAIN_VERSION: 11
+    - TOOLCHAIN_VERSION: 10
